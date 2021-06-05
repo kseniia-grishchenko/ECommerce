@@ -55,12 +55,6 @@ function HomeScreen({ history }) {
                         <Paginate page={page} pages={pages} keyword={keyword}/>
                     </div>
             }
-            <div>
-                <DemoPie categories={categories}/>
-            </div>
-            <div>
-                <DemoColumn orderItems={orderItems}/>
-            </div>
 
         </div>
     )
