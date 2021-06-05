@@ -16,9 +16,6 @@ function HomeScreen({ history }) {
     const productList = useSelector(state => state.productList)
     const {error, loading, products, page, pages} = productList
 
-    const orderList = useSelector(state => state.orderList)
-    const { loading: loadingOrders,  error: errorOrders, orders } = orderList
-
     let keyword = history.location.search
     useEffect(() => {
 
@@ -26,15 +23,6 @@ function HomeScreen({ history }) {
         dispatch(listOrders())
 
     }, [dispatch, keyword])
-
-    let categories = products?.reduce((acc, product) =>
-            ({ ...acc, [product.category]: (acc[product.category] || 0) + 1 }),
-        {});
-
-    let orderItems = orders?.reduce((acc, order) => {
-        order.orderItems?.forEach(orderItem => (acc[orderItem.name] = (acc[orderItem.name] || 0) + 1))
-        return acc
-    }, {})
     return (
         <div>
             {!keyword && <ProductCarousel />}
