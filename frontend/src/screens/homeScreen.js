@@ -6,8 +6,6 @@ import Loader from "../components/loader";
 import Message from "../components/message";
 import Paginate from "../components/paginate";
 import {listProducts} from "../actions/productActions";
-import DemoPie from "../components/pieChart";
-import DemoColumn from "../components/columnChart";
 import ProductCarousel from "../components/productCarousel";
 import {listOrders} from "../actions/orderActions";
 
@@ -27,14 +25,6 @@ function HomeScreen({ history }) {
 
     }, [dispatch, keyword])
 
-    let categories = products?.reduce((acc, product) =>
-            ({ ...acc, [product.category]: (acc[product.category] || 0) + 1 }),
-        {});
-
-    let orderItems = orders?.reduce((acc, order) => {
-        order.orderItems?.forEach(orderItem => (acc[orderItem.name] = (acc[orderItem.name] || 0) + 1))
-        return acc
-    }, {})
     return (
         <div>
             {!keyword && <ProductCarousel />}
@@ -55,13 +45,6 @@ function HomeScreen({ history }) {
                         <Paginate page={page} pages={pages} keyword={keyword}/>
                     </div>
             }
-            <div>
-                <DemoPie categories={categories}/>
-            </div>
-            <div>
-                <DemoColumn orderItems={orderItems}/>
-            </div>
-
         </div>
     )
 
