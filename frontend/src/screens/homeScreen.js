@@ -6,8 +6,6 @@ import Loader from "../components/loader";
 import Message from "../components/message";
 import Paginate from "../components/paginate";
 import {listProducts} from "../actions/productActions";
-import DemoPie from "../components/pieChart";
-import DemoColumn from "../components/columnChart";
 import ProductCarousel from "../components/productCarousel";
 import {listOrders} from "../actions/orderActions";
 
